@@ -67,11 +67,29 @@
     align-items: center;
     justify-content: center;
     gap: 3rem;
+
   }
 
-  .overlayVisible {
-    transition: all 0.5s ease;
-    opacity: 1;
+  .overlayFadeIn {
+    animation-duration: 0.75s;
+    animation-fill-mode: forwards;
+    animation-name: fadeIn;
+  }
+
+  @keyframes fadeIn {
+    0%    { opacity: 0; }
+    100%   { opacity: 1; }
+  }
+
+  .overlayFadeOut {
+    animation-duration: 0.75s;
+    animation-fill-mode: forwards;
+    animation-name: fadeOut;
+  }
+
+  @keyframes fadeOut {
+    0%    { opacity: 1; }
+    100%   { opacity: 0; }
   }
   
   .iconContainer {
