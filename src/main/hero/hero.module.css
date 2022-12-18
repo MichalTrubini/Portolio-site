@@ -28,9 +28,11 @@
     gap: 3rem;
 }
 
+
 .listItem {
     position: relative;
     font-size: 1.4rem;
+    line-height: 1.4rem;
 }
 
 .listItem::before {
@@ -41,7 +43,7 @@
     border-radius: 100%;
     background-color: var(--lightGreen);
     position: absolute;
-    top: 8px;
+    top: 4px;
     left: -15px;
 }
 
