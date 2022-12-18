@@ -1,0 +1,18 @@
+.hamburgerContainer {
+    background-color: var(--lightGreenOpacity);
+    width: 50px;
+    height: 38px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.hamburger {
+    width: 23px;
+    height: 3px;
+    background-color: var(--lightGreen);
+    opacity: 1;
+}

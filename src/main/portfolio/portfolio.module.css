@@ -1,0 +1,32 @@
+.portfolio {
+    padding: 0 2.4rem;
+    display: grid;
+    margin-bottom: 4rem;
+}
+
+.works {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media screen and (min-width:525px) {
+    .works {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+}
+
+@media screen and (min-width:768px) {
+    .works {
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+    }
+}
+
+@media screen and (min-width:1024px) {
+    .works {
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 3rem;
+    }
+}

@@ -1,0 +1,97 @@
+.item {
+    width: 100%;
+    padding: 2rem;
+    background-color: #353b48;
+    border: 1px solid rgb(82, 81, 81);
+    border-radius: 5px;
+    flex-shrink: 0;
+}
+
+.imageContainer {
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: 0.76px;
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.list {
+    display: flex;
+    gap: 3rem;
+    padding-left: 2.9rem;
+}
+
+.listItem {
+    font-size: 1.4rem;
+    position: relative;
+}
+
+.listItem::before {
+    content: '';
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-radius: 100%;
+    background-color: var(--lightGreen);
+    position: absolute;
+    top: 6px;
+    left: -13px;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: blip;
+  }
+  
+  @keyframes blip {
+    0%    { opacity: 0.5; }
+    50%   { opacity: 1; }
+    100%   { opacity: 0.5; }
+  }
+
+  .overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(5px);
+    background: hsla(0,0%,100%,.04);
+    transition: all 0.5s ease;
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+  }
+
+  .overlayVisible {
+    transition: all 0.5s ease;
+    opacity: 1;
+  }
+  
+  .iconContainer {
+    width: 45px;
+    height: 45px;
+    border-radius: 100%;
+    background-color: var(--lightGreen);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .iconImageOne {
+    width: 60%;
+  }
+
+  .iconImageTwo {
+    width: 45%;
+  }
+
+  .iconImage:hover {
+    cursor: pointer;
+  }

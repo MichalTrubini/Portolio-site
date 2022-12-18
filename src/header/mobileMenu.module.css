@@ -1,0 +1,77 @@
+.mobile {
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--backgroundMain);
+  padding: 2.4rem;
+
+}
+
+.animateFromBottom {
+    animation-duration: 0.75s;
+    animation-fill-mode: forwards;
+    animation-name: slideFromBottom;
+}
+
+@keyframes slideFromBottom {
+    from {
+      transform: translateY(100%);
+      transition: all 0.5s ease-in;
+    }
+  
+    to {
+      transform: translateY(0);
+      transition: all 0.5s ease-in;
+    }
+  }
+
+  .animateTop {
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-name: slideToTop;
+}
+
+@keyframes slideToTop {
+    from {
+      transform: translateY(0);
+      transition: all 0.5s ease-out;
+    }
+  
+    to {
+      transform: translateY(-100%);
+      transition: all 0.5s ease-out;
+    }
+  }
+
+
+.container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.wrapper {
+  background-color: var(--lightGreenOpacity);
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  display: grid;
+  place-content: center;
+}
+
+.cross {
+  width: 20px;
+  height: 3px;
+  background-color: var(--lightGreen);
+}
+
+.crossOne {
+  transform: rotate(45deg);
+  position: relative;
+  top: 3px;
+}
+
+.crossTwo {
+  transform: rotate(-45deg);
+}
