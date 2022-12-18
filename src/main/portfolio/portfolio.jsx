@@ -6,7 +6,6 @@ import imageSubscription from "../../assets/subscription.jpg";
 import imageCalculator from "../../assets/calculator.jpg";
 import imageTips from "../../assets/tips.jpg";
 import imagePlanets from "../../assets/planets.jpg";
-import finalPropsSelectorFactory from "react-redux/es/connect/selectorFactory";
 
 const portfolioItems = [
   {
