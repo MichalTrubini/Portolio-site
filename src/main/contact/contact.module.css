@@ -1,0 +1,67 @@
+.contact {
+  display: grid;
+  padding: 0 2.4rem;
+  margin-bottom: 8rem;
+}
+
+.form {
+  width: 100%;
+  padding: 2rem;
+  background-color: #353b48;
+  border: 1px solid rgb(82, 81, 81);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.formItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.label {
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+
+.input {
+  background-color: var(--backgroundMain);
+  border: 1px solid rgb(82, 81, 81);
+  border-radius: 4px;
+  font-size: 1.4rem;
+  padding: 1rem;
+  font-weight: 500;
+  color: white;
+}
+
+.input:focus {
+  outline: 1px solid var(--lightGreen);
+}
+
+.textarea {
+  font-family: "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+.sendButton {
+    background-color: var(--lightGreen);
+    color: var(--backgroundMain);
+    border: none;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.76px;
+    width: 10rem;
+    padding: 1.2rem 0;
+}
+
+.errorMessage {
+    text-align: center;
+    color: rgb(239,68,68);
+    background-color: rgba(239,68,68,0.2);;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    font-size: 1.2rem;
+    padding: 0.1rem 0 0.3rem;
+}
