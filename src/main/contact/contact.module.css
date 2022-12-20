@@ -6,6 +6,8 @@
 
 .form {
   width: 100%;
+  max-width: 55rem;
+  margin: auto;
   padding: 2rem;
   background-color: #353b48;
   border: 1px solid rgb(82, 81, 81);
@@ -45,23 +47,60 @@
 }
 
 .sendButton {
-    background-color: var(--lightGreen);
-    color: var(--backgroundMain);
-    border: none;
-    border-radius: 4px;
-    text-transform: uppercase;
-    font-weight: 700;
-    letter-spacing: 0.76px;
-    width: 10rem;
-    padding: 1.2rem 0;
+  background-color: var(--lightGreen);
+  color: var(--backgroundMain);
+  border: none;
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.76px;
+  width: 10rem;
+  padding: 1.2rem 0;
+  font-size: 1.4rem;
 }
 
 .errorMessage {
-    text-align: center;
-    color: rgb(239,68,68);
-    background-color: rgba(239,68,68,0.2);;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    font-size: 1.2rem;
-    padding: 0.1rem 0 0.3rem;
+  text-align: center;
+  color: rgb(239, 68, 68);
+  background-color: rgba(239, 68, 68, 0.2);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  font-size: 1.2rem;
+  padding: 0.1rem 0 0.3rem;
+}
+
+.buttonContainer {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.messageOK {
+  color: rgb(23, 174, 23);
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.messageNOK {
+  color: rgb(239, 68, 68);
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+@media screen and (min-width: 1440px) {
+  .label,
+  .input,
+  .sendButton {
+    font-size: 1.6rem;
+  }
+
+  .formItem {
+    gap: 1rem;
+  }
+
+  .form {
+    gap: 2.5rem;
+  }
 }

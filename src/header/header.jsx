@@ -21,7 +21,7 @@ const Header = () => {
   return (
     <header className={styles.header}>
       <div className={styles.container}>
-        {width > 425 ? (
+        {width > 768 ? (
           <Menu />
         ) : (
           <Hamburger

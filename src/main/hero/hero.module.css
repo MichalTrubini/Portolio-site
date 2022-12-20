@@ -67,3 +67,28 @@
         font-size: 1.6rem;
     }
 }
+
+@media screen and (min-width: 1440px) {
+    .heading {
+        font-size: 6.6rem;
+        margin-bottom: 2.2rem;
+    }
+    .listItem {
+        font-size: 2.4rem;
+    }
+
+    .list {
+        gap: 5rem;
+    }
+
+    .listItem::before {
+        top: 5px;
+        left: -20px;
+    }
+
+    .imageContainer {
+        width: 300px;
+        height: 300px;
+        border: 6px solid var(--lightGreen);
+    }
+}

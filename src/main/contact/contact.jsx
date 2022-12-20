@@ -5,6 +5,8 @@ import styles from "./contact.module.css";
 const Contact = () => {
   const form = useRef();
 
+//STATE MANAGEMENT ***START
+
   const [userInput, setUserInput] = useState({
     userName: "",
     userEmail: "",
@@ -12,8 +14,9 @@ const Contact = () => {
   });
 
   const [userSubmit, setUserSubmit] = useState(false);
+  const [sendOK, setSendOK] = useState(false);
 
-  const onUpdateField = e => {
+  const onUpdateField = (e) => {
     const nextFormState = {
       ...userInput,
       [e.target.name]: e.target.value,
@@ -22,22 +25,30 @@ const Contact = () => {
   };
 
   const onButtonClick = () => {
-    setUserSubmit(true)
-  }
+    setUserSubmit(true);
+  };
+console.log(userInput)
+//STATE MANAGEMENT ***END
 
   const regex = /^[\w]{1,}[\w.+-]{0,}@[\w-]{2,}([.][a-zA-Z]{2,}|[.][\w-]{2,}[.][a-zA-Z]{2,})$/;
 
   const sendEmail = (e) => {
     e.preventDefault();
 
-    if (userInput.userName.trim().length === 0 || userInput.userEmail.trim().length === 0 || userInput.userMessage.trim().length === 0 || regex.test(userInput.userEmail) === false) return;
+    if (
+      userInput.userName.trim().length === 0 ||
+      userInput.userEmail.trim().length === 0 ||
+      userInput.userMessage.trim().length === 0 ||
+      regex.test(userInput.userEmail) === false
+    )
+      return;
 
     emailjs.sendForm("service_ztdjbal", "template_4dso9vt", form.current, "7IeMeuJy_-64PCwkj").then(
       (result) => {
-        console.log(result.text);
+        setSendOK(true);
       },
       (error) => {
-        console.log(error.text);
+        setSendOK(false)
       }
     );
   };
@@ -50,8 +61,18 @@ const Contact = () => {
           <label className={styles.label} htmlFor="username">
             Name
           </label>
-          <input id="username" className={styles.input} type="text" name="userName" placeholder="Enter your name..." value={userInput.name} onChange={onUpdateField}/>
-          {userSubmit && userInput.userName.trim().length === 0 && <p className={styles.errorMessage}>Name is required!</p>}
+          <input
+            id="username"
+            className={styles.input}
+            type="text"
+            name="userName"
+            placeholder="Enter your name..."
+            value={userInput.name}
+            onChange={onUpdateField}
+          />
+          {userSubmit && userInput.userName.trim().length === 0 && (
+            <p className={styles.errorMessage}>Name is required!</p>
+          )}
         </div>
         <div className={styles.formItem}>
           <label className={styles.label} htmlFor="useremail">
@@ -66,7 +87,12 @@ const Contact = () => {
             value={userInput.email}
             onChange={onUpdateField}
           />
-          {(userSubmit & userInput.userEmail.trim().length === 0) ? <p className={styles.errorMessage}>Email is required!</p> : userSubmit && regex.test(userInput.userEmail) === false && <p className={styles.errorMessage}>Incorrect format!</p>}
+          {userSubmit & (userInput.userEmail.trim().length === 0) ? (
+            <p className={styles.errorMessage}>Email is required!</p>
+          ) : (
+            userSubmit &&
+            regex.test(userInput.userEmail) === false && <p className={styles.errorMessage}>Incorrect format!</p>
+          )}
         </div>
         <div className={styles.formItem}>
           <label className={styles.label} htmlFor="usermessage">
@@ -81,10 +107,17 @@ const Contact = () => {
             value={userInput.message}
             onChange={onUpdateField}
           />
-          {userSubmit && userInput.userMessage.trim().length === 0 && <p className={styles.errorMessage}>Messsage is required!</p>}
+          {userSubmit && userInput.userMessage.trim().length === 0 && (
+            <p className={styles.errorMessage}>Messsage is required!</p>
+          )}
         </div>
-
-        <button type="submit" className={styles.sendButton} onClick={onButtonClick}>Send</button>
+        <div className={styles.buttonContainer}>
+          <button type="submit" className={styles.sendButton} onClick={onButtonClick}>
+            Send
+          </button>
+          {userSubmit && sendOK && <p className={styles.messageOK}>Message sent!</p>}
+          {userSubmit && !sendOK && <p className={styles.messageNOK}>Error sending a message!</p>}
+        </div>
       </form>
     </div>
   );

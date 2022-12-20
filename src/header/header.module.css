@@ -6,6 +6,10 @@
 
 .container {
     padding: 2.4rem;
+    max-width: 144rem;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
 }
 
 @media screen and (min-width:425px) {
@@ -17,8 +21,10 @@
         left: 0;
         background-color: #2c2d2d;
     }
+}
 
+@media screen and (min-width:1440px) {
     .container {
-        padding: 4rem;
+        padding: 4.4rem;
     }
 }
