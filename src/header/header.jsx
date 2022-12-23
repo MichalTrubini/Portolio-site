@@ -19,7 +19,7 @@ const Header = () => {
   };
 
   return (
-    <header className={styles.header}>
+    <header className={styles.header} id='headerID'>
       <div className={styles.container}>
         {width > 768 ? (
           <Menu />

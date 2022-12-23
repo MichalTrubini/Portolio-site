@@ -59,6 +59,11 @@
   font-size: 1.4rem;
 }
 
+.sendButton:hover {
+  cursor: pointer;
+  background-color: rgb(148, 246, 201);
+}
+
 .errorMessage {
   text-align: center;
   color: rgb(239, 68, 68);
@@ -66,7 +71,9 @@
   font-weight: 700;
   letter-spacing: 0.5px;
   font-size: 1.2rem;
-  padding: 0.1rem 0 0.3rem;
+  padding: 0.3rem 0 0.6rem;
+  position: relative;
+  top: -4px;
 }
 
 .buttonContainer {

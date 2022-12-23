@@ -15,7 +15,20 @@
 .navListItem {
   font-size: 2.2rem;
   font-weight: 700;
+  padding-bottom: 1rem;
   letter-spacing: 1px;
+  position: relative;
+  background-image: linear-gradient(rgb(114, 226, 174), rgb(114, 226, 174));
+  background-size: 0% 4px;
+  background-repeat: no-repeat;
+  background-position-y: 38px;
+  transition: all 0.5s ease;
+}
+
+.navListItem:hover {
+  cursor: pointer;
+  background-size: 100% 4px;
+  transition: all 0.5s ease;
 }
 
 .number {
@@ -23,6 +36,7 @@
   color: var(--lightGreen);
   font-size: 2.2rem;
 }
+
 
 @media screen and (min-width: 425px) {
 

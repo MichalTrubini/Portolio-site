@@ -15,7 +15,7 @@ const portfolioItems = [
     title: "Entertainment app",
     techStack: ["Next.js", "MongoDB"],
     git: "https://github.com/MichalTrubini/NEXT_entertainment-web-app",
-    live: "https://elegant-bubblegum-9af65f.netlify.app/",
+    live: "https://entertainment-v2-rhcq.vercel.app/",
   },
   {
     id: 2,
@@ -24,7 +24,7 @@ const portfolioItems = [
     title: "Ecommerce app",
     techStack: ["Next.js", "Typescript"],
     git: "https://github.com/MichalTrubini/NEXT_Audiophile-eCommerce-website",
-    live: "https://main--comfy-druid-252b07.netlify.app/",
+    live: "https://next-audiophile-e-commerce-website.vercel.app/",
   },
   {
     id: 3,
@@ -33,7 +33,7 @@ const portfolioItems = [
     title: "Subscription app",
     techStack: ["Next.js", "MongoDB"],
     git: "https://github.com/MichalTrubini/NEXT_coffeeroasters-subscription-site",
-    live: "https://euphonious-alpaca-54c492.netlify.app/",
+    live: "https://next-coffeeroasters-subscription-site.vercel.app/",
   },
   {
     id: 4,
@@ -66,7 +66,7 @@ const portfolioItems = [
 
 const Portfolio = () => {
   return (
-    <div className={styles.portfolio}>
+    <div className={styles.portfolio} id='portfolioID'>
       <h2 className="heading__section">Portfolio</h2>
       <div className={styles.works}>
         {portfolioItems.map((item) => (

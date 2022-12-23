@@ -10,7 +10,7 @@ const MobileMenu = (props) => {
                     <div className={`${styles.cross} ${styles.crossTwo}`}></div>
                 </div>
             </div>
-            <Menu />
+            <Menu onClick={props.onClick}/>
         </div>
     )
 }

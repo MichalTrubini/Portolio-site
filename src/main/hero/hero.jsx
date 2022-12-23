@@ -3,7 +3,7 @@ import Typewriter from "typewriter-effect";
 
 const Hero = () => {
   return (
-    <div className={styles.hero}>
+    <div className={styles.hero} id='heroID'>
       <div className={styles.heroContainer}>
         <div className={styles.imageContainer}></div>
         <h1 className={styles.heading}>

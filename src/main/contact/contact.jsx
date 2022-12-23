@@ -15,6 +15,7 @@ const Contact = () => {
 
   const [userSubmit, setUserSubmit] = useState(false);
   const [sendOK, setSendOK] = useState(false);
+  const [sendNOK, setSendNOK] = useState(false);
 
   const onUpdateField = (e) => {
     const nextFormState = {
@@ -27,7 +28,7 @@ const Contact = () => {
   const onButtonClick = () => {
     setUserSubmit(true);
   };
-console.log(userInput)
+  
 //STATE MANAGEMENT ***END
 
   const regex = /^[\w]{1,}[\w.+-]{0,}@[\w-]{2,}([.][a-zA-Z]{2,}|[.][\w-]{2,}[.][a-zA-Z]{2,})$/;
@@ -48,13 +49,13 @@ console.log(userInput)
         setSendOK(true);
       },
       (error) => {
-        setSendOK(false)
+        setSendNOK(true)
       }
     );
   };
 
   return (
-    <div className={styles.contact}>
+    <div className={styles.contact} id='contactID'>
       <h2 className="heading__section">Contact me</h2>
       <form className={styles.form} ref={form} onSubmit={sendEmail} noValidate>
         <div className={styles.formItem}>
@@ -116,7 +117,7 @@ console.log(userInput)
             Send
           </button>
           {userSubmit && sendOK && <p className={styles.messageOK}>Message sent!</p>}
-          {userSubmit && !sendOK && <p className={styles.messageNOK}>Error sending a message!</p>}
+          {userSubmit && sendNOK && <p className={styles.messageNOK}>Error sending a message!</p>}
         </div>
       </form>
     </div>
