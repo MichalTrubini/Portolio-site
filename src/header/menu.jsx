@@ -1,39 +1,79 @@
+import { useState } from "react";
 import styles from "./menu.module.css";
 
 const Menu = (props) => {
+ const [selected, setSelected] = useState('home')
 
-const scrollHandler = (item) => {
-  const element = document.getElementById(item);
-  const header = document.getElementById('headerID');
+  const scrollHandler = (item) => {
+    const element = document.getElementById(item);
+    const header = document.getElementById("headerID");
 
-  let headerOffset = header.offsetHeight;
-  let elementPosition = element.getBoundingClientRect().top;
-  let offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+    let headerOffset = header.offsetHeight;
+    let elementPosition = element.getBoundingClientRect().top;
+    let offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-  window.scrollTo({
-       top: offsetPosition,
-       behavior: "smooth"
-  });
-}
+    function windowScroll() {
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
 
-const close = () => {
-  return props.onClick
-}
+    if (window.innerWidth < 769) {
+      setTimeout(() => {
+        windowScroll();
+      }, 1000);
+    } else windowScroll();
+  };
+
+  const close = () => {
+    if (window.innerWidth < 769) {
+      props.onClickClose();
+    }
+  };
 
   return (
     <nav className={`${styles.nav}`}>
       <ul className={styles.navList}>
-        <li className={styles.navListItem} onClick={() => {scrollHandler('heroID'); close()}}>
-          <span className={styles.number}>1</span>home
+        <li
+          className={selected === 'home' ? `${styles.navListItem} ${styles.navListItem__selected}` : styles.navListItem}
+          onClick={() => {
+            scrollHandler("heroID");
+            setSelected('home')
+            close();
+          }}
+        >
+          <span className={styles.number}>01</span>home
         </li>
-        <li className={styles.navListItem} onClick={() => scrollHandler('aboutID')}>
-          <span className={styles.number}>2</span>about
+        <li
+          className={selected === 'about' ? `${styles.navListItem} ${styles.navListItem__selected}` : styles.navListItem}
+          onClick={() => {
+            scrollHandler("aboutID");
+            setSelected('about')
+            close();
+          }}
+        >
+          <span className={styles.number}>02</span>about
         </li>
-        <li className={styles.navListItem} onClick={() => scrollHandler('portfolioID')}>
-          <span className={styles.number}>3</span>portfolio
+        <li
+          className={selected === 'portfolio' ? `${styles.navListItem} ${styles.navListItem__selected}` : styles.navListItem}
+          onClick={() => {
+            scrollHandler("portfolioID");
+            setSelected('portfolio')
+            close();
+          }}
+        >
+          <span className={styles.number}>03</span>portfolio
         </li>
-        <li className={styles.navListItem} onClick={() => scrollHandler('contactID')}>
-          <span className={styles.number}>4</span>contact
+        <li
+          className={selected === 'contact' ? `${styles.navListItem} ${styles.navListItem__selected}` : styles.navListItem}
+          onClick={() => {
+            scrollHandler("contactID");
+            setSelected('contact')
+            close();
+          }}
+        >
+          <span className={styles.number}>04</span>contact
         </li>
       </ul>
     </nav>

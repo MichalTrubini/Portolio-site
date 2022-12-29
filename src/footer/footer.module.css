@@ -1,0 +1,132 @@
+.footer {
+    background: linear-gradient(180deg, #171a21, #090A0F);
+    color: white;
+    border-top: 1px solid rgb(82, 81, 81);
+}
+
+.container {
+    padding: 2.4rem;
+    max-width: 144rem;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;;
+    justify-content: center;
+}
+
+.copyright {
+    text-align: center;
+    font-size: 1.4rem;
+}
+
+.copyright__name {
+    color: var(--lightGreen);
+    font-weight: 700;
+}
+
+.social {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.containerOuter {
+    width: 36px;
+    height: 36px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.wrapper {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    left: -1px;
+}
+
+.wrapperHovered {
+    background-color: var(--lightGreen);
+}
+
+.containerInner {
+    transition: all 0.5s ease;
+    transform: translateY(0%);
+}
+
+.containerInner:hover {
+    cursor: pointer;
+    transform: translateY(-50%);
+    transition: all 0.5s ease;
+}
+
+.socialIcon {
+    width: 20px;
+    height: 20px
+}
+
+.linkedIn {
+    width: 17px;
+    height: 17px;
+    background-color: white;
+    border-radius: 3px;
+    color: black;
+    font-weight: 700;
+    display: grid;
+    place-content: center;
+    padding-bottom: 0.1rem;
+}
+
+.linkedInHovered {
+    background-color: black;
+    color: var(--lightGreen);
+}
+
+@media screen and (min-width:768px) {
+    .container {
+        flex-direction: row;
+        align-items: center;
+        gap: 4rem;
+        padding: 4.4rem 0;
+    }
+
+    .social {
+        margin: 0;
+    }
+
+    .copyright {
+        font-size: 1.6rem;
+    }
+}
+
+@media screen and (min-width:1440px) {
+    .container {
+        padding: 6.4rem 0;
+    }
+
+    .copyright {
+        font-size: 1.8rem;
+    }
+
+    .containerOuter, .wrapper {
+        width: 65px;
+        height: 65px;
+    }
+    
+    .socialIcon {
+        width: 35px;
+        height: 35px
+    }
+    
+    .linkedIn {
+        width: 30px;
+        height: 30px;
+        font-size: 1.8rem;
+    }
+}

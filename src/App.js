@@ -1,4 +1,5 @@
 import "./App.css";
+import Footer from "./footer/footer";
 import Header from "./header/header";
 import About from "./main/about/about";
 import Contact from "./main/contact/contact";
@@ -15,6 +16,7 @@ function App() {
         <Portfolio />
         <Contact />
       </main>
+      <Footer />
     </>
   );
 }

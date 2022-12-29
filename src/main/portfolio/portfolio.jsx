@@ -6,6 +6,8 @@ import imageSubscription from "../../assets/subscription.jpg";
 import imageCalculator from "../../assets/calculator.jpg";
 import imageTips from "../../assets/tips.jpg";
 import imagePlanets from "../../assets/planets.jpg";
+import { useEffect, useRef, useState } from "react";
+import useWindowDimensions from "../../utilities/WindowDimensions";
 
 const portfolioItems = [
   {
@@ -65,12 +67,38 @@ const portfolioItems = [
 ];
 
 const Portfolio = () => {
+  const [scrollTop, setScrollTop] = useState(0);
+  const [intersection, setIntersection] = useState(false);
+  const refPortfolio = useRef();
+  const { height } = useWindowDimensions();
+console.log(intersection)
+  useEffect(() => {
+    const boundingClient = refPortfolio.current.getBoundingClientRect();
+    console.log(boundingClient);
+    const onScroll = (e) => {
+      setScrollTop(e.target.documentElement.scrollTop);
+    };
+    window.addEventListener("scroll", onScroll);
+
+    if (boundingClient.top < height/2 & boundingClient.top > height - boundingClient.height) setIntersection(true);
+    return () => window.removeEventListener("scroll", onScroll);
+
+  }, [scrollTop, height]);
+
   return (
-    <div className={styles.portfolio} id='portfolioID'>
+    <div className={styles.portfolio} id="portfolioID" ref={refPortfolio}>
       <h2 className="heading__section">Portfolio</h2>
       <div className={styles.works}>
         {portfolioItems.map((item) => (
-          <PortfolioItem id={item.id} src={item.src} title={item.title} alt={item.alt} techStack={item.techStack} gitLink={item.git} liveLink={item.live}/>
+          <PortfolioItem
+            id={item.id}
+            src={item.src}
+            title={item.title}
+            alt={item.alt}
+            techStack={item.techStack}
+            gitLink={item.git}
+            liveLink={item.live}
+          />
         ))}
       </div>
     </div>

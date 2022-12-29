@@ -14,7 +14,7 @@ const PortfolioItem = (props) => {
   }
 
   return (
-    <div className={styles.item} id={props.id}>
+    <div className={styles.item} key={props.id}>
       <div className={styles.imageContainer} onMouseEnter={() => setIsShown(true)} onMouseLeave={animateFadeOut}>
         <img src={props.src} alt={props.alt} className={styles.image} />
 
