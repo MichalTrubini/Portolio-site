@@ -1,3 +1,73 @@
 .about {
+  padding: 0 2.4rem;
   display: grid;
+  margin-bottom: 8rem;
+}
+
+.columns {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.heading {
+  font-size: 1.8rem;
+  letter-spacing: 0.76px;
+  text-transform: capitalize;
+  margin-bottom: 3rem;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  padding-left: 3rem;
+  margin-left: 1rem;
+  padding-bottom: 2rem;
+  border-left: 3px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+}
+
+.year {
+  font-size: 1.4rem;
+  background-color: rgba(114, 226, 174, 0.1);
+  color: rgba(255, 255, 255, 0.5);
+  display: inline-block;
+  padding: 0 1rem;
+  border-radius: 10px;
+}
+
+.description {
+  font-size: 1.3rem;
+}
+
+.itemHeading {
+  color: var(--lightGreen);
+  margin: 1rem 0 0.5rem;
+  font-size: 1.4rem;
+}
+
+.circle {
+  position: absolute;
+  z-index: 99;
+  top: -3px;
+  left: -14px;
+  width: 24px;
+  height: 24px;
+  border-radius: 100%;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  background-color:#090A0F;
+}
+
+.circle::after {
+  content: '';
+  width: 15px;
+  height: 3px;
+  background-color: rgba(255, 255, 255, 0.2);
+  position: absolute;
+  top: 7px;
+  right: -18px;
+}
+
+.institution {
+  font-size: 1.4rem;
 }

@@ -34,7 +34,7 @@ const Footer = () => {
         </div>
         <div>
           <p className={styles.copyright}>
-            &copy; 2022, created by <span className={styles.copyright__name}>Michal Trubini</span>
+            &copy; 2022, created with React by <span className={styles.copyright__name}>Michal Trubini</span>
           </p>
         </div>
       </div>
