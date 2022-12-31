@@ -1,11 +1,14 @@
 import styles from "./hero.module.css";
 import Typewriter from "typewriter-effect";
+import heroImage from '../../assets/profil.jpeg'
 
 const Hero = () => {
   return (
     <div className={styles.hero} id='heroID'>
       <div className={styles.heroContainer}>
-        <div className={styles.imageContainer}></div>
+        <div className={styles.imageContainer}>
+          <img src={heroImage} alt='hero' className={styles.image}/>
+        </div>
         <h1 className={styles.heading}>
           <span>Hi, I am</span>
           <span className={styles.heading__special}>

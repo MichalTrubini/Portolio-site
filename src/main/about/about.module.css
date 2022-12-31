@@ -20,10 +20,6 @@
 .item {
   display: flex;
   flex-direction: column;
-  padding-left: 3rem;
-  margin-left: 1rem;
-  padding-bottom: 2rem;
-  border-left: 3px solid rgba(255, 255, 255, 0.2);
   position: relative;
 }
 
@@ -36,8 +32,18 @@
   border-radius: 10px;
 }
 
+.yearContainer {
+  position: absolute;
+  top: 0;
+  left: 50px;
+}
+
 .description {
   font-size: 1.3rem;
+  position: relative;
+  padding: 2rem 0 2rem 4rem;
+  margin-left: 1rem;
+  border-left: 3px solid rgba(255, 255, 255, 0.2);
 }
 
 .itemHeading {
@@ -55,11 +61,11 @@
   height: 24px;
   border-radius: 100%;
   border: 3px solid rgba(255, 255, 255, 0.2);
-  background-color:#090A0F;
+  background-color: #090a0f;
 }
 
 .circle::after {
-  content: '';
+  content: "";
   width: 15px;
   height: 3px;
   background-color: rgba(255, 255, 255, 0.2);
@@ -70,4 +76,61 @@
 
 .institution {
   font-size: 1.4rem;
+}
+
+@media screen and (min-width: 525px) {
+  .item {
+    flex-direction: row;
+    gap: 3rem;
+  }
+
+  .yearContainer {
+    position: unset;
+  }
+
+  .description {
+    padding: 0rem 0 2rem 4rem;
+    margin-left: 1rem;
+  }
+
+  .itemHeading {
+    margin: 0 0 0.5rem;
+    font-size: 1.6rem;
+  }
+
+  .circle {
+    top: 0;
+  }
+
+  .circle::before {
+    content: "";
+    width: 15px;
+    height: 3px;
+    background-color: rgba(255, 255, 255, 0.2);
+    position: absolute;
+    top: 7px;
+    left: -18px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .heading {
+    font-size: 2.2rem;
+  }
+
+  .itemHeading {
+    font-size: 1.8rem;
+  }
+
+  .institution {
+    font-size: 1.6rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .columns {
+    flex-direction: row;
+    justify-content: center;
+    gap: 12rem;
+  }
 }

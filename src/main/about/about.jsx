@@ -14,8 +14,8 @@ const About = () => {
             <div className={styles.description}>
               <h4 className={styles.itemHeading}>Certificate in Business Management</h4>
               <p className={styles.institution}>The Open University (UK)</p>
+              <div className={styles.circle}></div>
             </div>
-            <div className={styles.circle}></div>
           </div>
           <div className={styles.item}>
             <div className={styles.yearContainer}>
@@ -24,8 +24,8 @@ const About = () => {
             <div className={styles.description}>
               <h4 className={styles.itemHeading}>Certificate in Bookkeeping I & II</h4>
               <p className={styles.institution}>Institute of Certified Bookkeepers (UK)</p>
+              <div className={styles.circle}></div>
             </div>
-            <div className={styles.circle}></div>
           </div>
           <div className={styles.item}>
             <div className={styles.yearContainer}>
@@ -34,8 +34,8 @@ const About = () => {
             <div className={styles.description}>
               <h4 className={styles.itemHeading}>Degree in Biology/Physics</h4>
               <p className={styles.institution}>Constantine the Philosopher University (SK)</p>
+              <div className={styles.circle}></div>
             </div>
-            <div className={styles.circle}></div>
           </div>
         </div>
         <div className={styles.column}>
@@ -45,10 +45,10 @@ const About = () => {
               <p className={styles.year}>2017 - 2022</p>
             </div>
             <div className={styles.description}>
-              <h4 className={styles.itemHeading}>Sales manager</h4>
+              <h4 className={styles.itemHeading}>Sales manager & Freelance developer</h4>
               <p className={styles.institution}>Self-employed (SK)</p>
+              <div className={styles.circle}></div>
             </div>
-            <div className={styles.circle}></div>
           </div>
           <div className={styles.item}>
             <div className={styles.yearContainer}>
@@ -57,8 +57,8 @@ const About = () => {
             <div className={styles.description}>
               <h4 className={styles.itemHeading}>Business Analyst</h4>
               <p className={styles.institution}>Flextronics (UK)</p>
+              <div className={styles.circle}></div>
             </div>
-            <div className={styles.circle}></div>
           </div>
           <div className={styles.item}>
             <div className={styles.yearContainer}>
@@ -67,8 +67,8 @@ const About = () => {
             <div className={styles.description}>
               <h4 className={styles.itemHeading}>Account Manager</h4>
               <p className={styles.institution}>Flextronics (UK)</p>
+              <div className={styles.circle}></div>
             </div>
-            <div className={styles.circle}></div>
           </div>
         </div>
       </div>
