@@ -20,7 +20,7 @@ const Footer = () => {
             </a>
           </div>
           <div className={styles.containerOuter}>
-            <a href="https://www.linkedin.com/in/michal-trub%C3%ADni-970988220/" target="_blank" rel="noreferrer">
+            <a href="https://sk.linkedin.com/in/michal-trub%C3%ADni-970988220" target="_blank" rel="noreferrer">
               <div className={styles.containerInner}>
                 <div className={styles.wrapper}>
                   <div className={styles.linkedIn}>in</div>

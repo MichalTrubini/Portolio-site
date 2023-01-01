@@ -5,7 +5,7 @@ import styles from "./contact.module.css";
 const Contact = () => {
   const form = useRef();
 
-//STATE MANAGEMENT ***START
+  //STATE MANAGEMENT ***START
 
   const [userInput, setUserInput] = useState({
     userName: "",
@@ -28,8 +28,8 @@ const Contact = () => {
   const onButtonClick = () => {
     setUserSubmit(true);
   };
-  
-//STATE MANAGEMENT ***END
+
+  //STATE MANAGEMENT ***END
 
   const regex = /^[\w]{1,}[\w.+-]{0,}@[\w-]{2,}([.][a-zA-Z]{2,}|[.][\w-]{2,}[.][a-zA-Z]{2,})$/;
 
@@ -47,15 +47,21 @@ const Contact = () => {
     emailjs.sendForm("service_ztdjbal", "template_4dso9vt", form.current, "7IeMeuJy_-64PCwkj").then(
       (result) => {
         setSendOK(true);
+        setTimeout(() => {
+          setSendOK(false);
+          setUserSubmit(false);
+          setUserInput({ userName: "", userEmail: "", userMessage: "" });
+          e.target.reset();
+        }, 1500);
       },
       (error) => {
-        setSendNOK(true)
+        setSendNOK(true);
       }
     );
   };
 
   return (
-    <div className={styles.contact} id='contactID'>
+    <div className={styles.contact} id="contactID">
       <h2 className="heading__section">Contact me</h2>
       <form className={styles.form} ref={form} onSubmit={sendEmail} noValidate>
         <div className={styles.formItem}>
