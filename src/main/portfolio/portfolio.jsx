@@ -15,7 +15,7 @@ const portfolioItems = [
     title: "Entertainment app",
     techStack: ["Next.js", "MongoDB"],
     git: "https://github.com/MichalTrubini/NEXT_entertainment-web-app",
-    live: "https://entertainment-v2-rhcq.vercel.app/",
+    live: "https://next-entertainment-v1.vercel.app/",
   },
   {
     id: 2,
