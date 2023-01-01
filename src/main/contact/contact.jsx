@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import styles from "./contact.module.css";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const Contact = () => {
   const form = useRef();
@@ -16,6 +17,7 @@ const Contact = () => {
   const [userSubmit, setUserSubmit] = useState(false);
   const [sendOK, setSendOK] = useState(false);
   const [sendNOK, setSendNOK] = useState(false);
+  const [reCaptcha, setReCaptcha] = useState(false);
 
   const onUpdateField = (e) => {
     const nextFormState = {
@@ -40,7 +42,8 @@ const Contact = () => {
       userInput.userName.trim().length === 0 ||
       userInput.userEmail.trim().length === 0 ||
       userInput.userMessage.trim().length === 0 ||
-      regex.test(userInput.userEmail) === false
+      regex.test(userInput.userEmail) === false ||
+      reCaptcha === false
     )
       return;
 
@@ -58,6 +61,10 @@ const Contact = () => {
         setSendNOK(true);
       }
     );
+  };
+
+  const reCaptchaHandler = (e) => {
+    console.log(e)
   };
 
   return (
@@ -118,6 +125,7 @@ const Contact = () => {
             <p className={styles.errorMessage}>Messsage is required!</p>
           )}
         </div>
+        <ReCAPTCHA sitekey="6LcmisIjAAAAAJARBVeEJKe1VoOGFcz8HzxYZfd0" onChange={()=>{setReCaptcha(true)}}/>
         <div className={styles.buttonContainer}>
           <button type="submit" className={styles.sendButton} onClick={onButtonClick}>
             Send
