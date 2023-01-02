@@ -33,7 +33,7 @@ const portfolioItems = [
     title: "Subscription app",
     techStack: ["Next.js", "MongoDB"],
     git: "https://github.com/MichalTrubini/NEXT_coffeeroasters-subscription-site",
-    live: "https://next-coffeeroasters-subscription-site.vercel.app/",
+    live: "https://next-coffeeroasters-subscription-site-4e83.vercel.app/",
   },
   {
     id: 4,

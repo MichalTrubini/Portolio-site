@@ -32,7 +32,7 @@ const About = () => {
               <p className={styles.year}>2001 - 2006</p>
             </div>
             <div className={styles.description}>
-              <h4 className={styles.itemHeading}>Degree in Biology/Physics</h4>
+              <h4 className={styles.itemHeading}>Master's degree in Biology/Physics</h4>
               <p className={styles.institution}>Constantine the Philosopher University (SK)</p>
               <div className={styles.circle}></div>
             </div>
