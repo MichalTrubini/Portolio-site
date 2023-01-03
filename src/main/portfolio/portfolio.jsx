@@ -65,10 +65,13 @@ const portfolioItems = [
 ];
 
 const Portfolio = () => {
-
   return (
     <div className={styles.portfolio} id="portfolioID">
-      <h2 className="heading__section">Portfolio</h2>
+      <div className='headingContainer'>
+        <h2 className="headingSection">My Portfolio</h2>
+        <div className='headingUnderline'></div>
+        <p className="headingBackground">Portfolio</p>
+      </div>
       <div className={styles.works}>
         {portfolioItems.map((item) => (
           <PortfolioItem

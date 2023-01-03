@@ -73,6 +73,11 @@
     .listItem {
         font-size: 1.6rem;
     }
+
+    .imageContainer {
+        width: 250px;
+        height: 250px;
+    }
 }
 
 @media screen and (min-width: 1440px) {

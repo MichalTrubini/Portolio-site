@@ -22,7 +22,7 @@ const Menu = (props) => {
     if (window.innerWidth < 769) {
       setTimeout(() => {
         windowScroll();
-      }, 1000);
+      }, 500);
     } else windowScroll();
   };
 
@@ -46,14 +46,14 @@ const Menu = (props) => {
           <span className={styles.number}>01</span>home
         </li>
         <li
-          className={selected === 'about' ? `${styles.navListItem} ${styles.navListItem__selected}` : styles.navListItem}
+          className={selected === 'skills' ? `${styles.navListItem} ${styles.navListItem__selected}` : styles.navListItem}
           onClick={() => {
-            scrollHandler("aboutID");
-            setSelected('about')
+            scrollHandler("skillsID");
+            setSelected('skills')
             close();
           }}
         >
-          <span className={styles.number}>02</span>about
+          <span className={styles.number}>02</span>skills
         </li>
         <li
           className={selected === 'portfolio' ? `${styles.navListItem} ${styles.navListItem__selected}` : styles.navListItem}

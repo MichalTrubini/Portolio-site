@@ -10,14 +10,13 @@ const PortfolioItem = (props) => {
 
   const animateFadeOut = () => {
     setAnimate(true);
-    setTimeout(()=>{setIsShown(false);setAnimate(false)},1000);
+    setTimeout(()=>{setIsShown(false);setAnimate(false)},450);
   }
 
   return (
-    <div className={styles.item} key={props.id}>
-      <div className={styles.imageContainer} onMouseEnter={() => setIsShown(true)} onMouseLeave={animateFadeOut}>
+    <div className={isShown & !animate ? `${styles.item} ${styles.itemUp}` : `${styles.item} ${styles.itemDown}`} key={props.id} onMouseEnter={() => setIsShown(true)} onMouseLeave={animateFadeOut}>
+      <div className={styles.imageContainer} >
         <img src={props.src} alt={props.alt} className={styles.image} />
-
           {isShown &&
           <div className={!animate ? `${styles.overlay} ${styles.overlayFadeIn}` : `${styles.overlay} ${styles.overlayFadeOut}`}>
             <a href={props.gitLink} target="_blank" rel="noreferrer">

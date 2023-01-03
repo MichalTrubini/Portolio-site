@@ -10,7 +10,7 @@
 }
 
 .animateFromBottom {
-    animation-duration: 0.75s;
+    animation-duration: 0.25s;
     animation-fill-mode: forwards;
     animation-name: slideFromBottom;
 }
@@ -28,7 +28,7 @@
   }
 
   .animateTop {
-    animation-duration: 1s;
+    animation-duration: 0.5s;
     animation-fill-mode: forwards;
     animation-name: slideToTop;
 }
@@ -48,7 +48,8 @@
 
 .container {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .wrapper {

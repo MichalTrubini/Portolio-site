@@ -7,9 +7,33 @@
     flex-shrink: 0;
 }
 
+.itemUp {
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  animation-name: itemUp;
+}
+
+@keyframes itemUp {
+  0%    { transform: translateY(0)}
+  100%   { transform: translateY(-10px)}
+}
+
+.itemDown {
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  animation-name: itemDown;
+}
+
+@keyframes itemDown {
+  0%    { transform: translateY(-10px)}
+  100%   { transform: translateY(0)}
+}
+
+
 .imageContainer {
     margin-bottom: 2rem;
     position: relative;
+    overflow: hidden;
 }
 
 .title {
@@ -59,10 +83,9 @@
     position: absolute;
     top: 0;
     left: 0;
-    backdrop-filter: blur(5px);
+    z-index: 1;
+    backdrop-filter: blur(10px);
     background: hsla(0,0%,100%,.04);
-    transition: all 0.5s ease;
-    opacity: 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -71,25 +94,25 @@
   }
 
   .overlayFadeIn {
-    animation-duration: 0.75s;
+    animation-duration: 0.5s;
     animation-fill-mode: forwards;
     animation-name: fadeIn;
   }
 
   @keyframes fadeIn {
-    0%    { opacity: 0; }
-    100%   { opacity: 1; }
+    0%    { transform: translateX(-100%)}
+    100%   { transform: translateX(0%)}
   }
 
   .overlayFadeOut {
-    animation-duration: 0.75s;
+    animation-duration: 0.5s;
     animation-fill-mode: forwards;
     animation-name: fadeOut;
   }
 
   @keyframes fadeOut {
-    0%    { opacity: 1; }
-    100%   { opacity: 0; }
+    0%    {  transform: translateX(0%)}
+    100%   { transform: translateX(-100%)}
   }
   
   .iconContainer {

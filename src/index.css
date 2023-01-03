@@ -46,29 +46,119 @@ p {
 .wrapper {
   max-width: 144rem;
   margin: auto;
+  overflow: hidden;
 }
 
-.heading__section {
+.mainHeader {
+  font-size: 4rem;
+  line-height: 2rem;
+  color: var(--lightGreen);
+  letter-spacing: 2px;
+}
+
+.mainHeader__light {
+color: white;
+}
+
+.headingContainer {
+  position: relative;
+  display: grid;
+}
+
+.headingBackground {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 10rem;
+  line-height: 8rem;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.05);
+  font-weight: 700;
+}
+
+.headingSection {
   font-size: 3rem;
   text-transform: uppercase;
   letter-spacing: 1px;
-  margin: 0 auto 6rem;
-  display: inline-block;
-  border-bottom: 5px solid var(--lightGreen);
-  padding-bottom: 1rem;
+  margin: 0 auto 8rem;
   text-align: center;
 }
 
+.headingUnderline {
+  width: 13rem;
+  height: 0.6rem;
+  background-color: rgba(114, 226, 174, 0.2);
+  border-radius: 4px;
+  position: absolute;
+  top: 5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  overflow: hidden;
+}
+
+.headingUnderline::after {
+  content: '';
+  width: 0.6rem;
+  height: 0.6rem;
+  background-color: var(--lightGreen);
+  position: absolute;
+  border-radius: 100%;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+  animation-name: moveToRight;
+}
+
+@keyframes moveToRight {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(13rem);
+  }
+}
+
 @media screen and (min-width:768px) {
-  .heading__section {
-    font-size: 4rem;
-    margin: 0 auto 8rem;
+  .headingSection {
+    font-size: 6rem;
+    margin: 0 auto 12rem;
+  }
+
+  .headingBackground {
+    font-size: 16rem;
+    line-height: 13rem;
+  }
+
+  .headingUnderline {
+    width: 22rem;
+    height: 1rem;
+    border-radius: 99px;
+    top: 9rem;
+  }
+
+  .headingUnderline::after {
+    width: 1rem;
+    height: 1rem;
+    animation-duration: 2s;
+  }
+
+  @keyframes moveToRight {
+    from {
+      transform: translateX(0);
+    }
+  
+    to {
+      transform: translateX(22rem);
+    }
   }
 }
 
 @media screen and (min-width:1440px) {
-  .heading__section {
-    font-size: 5rem;
+  .headingSection {
+    font-size: 6rem;
     margin: 0 auto 10rem;
   }
 }

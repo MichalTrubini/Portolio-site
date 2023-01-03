@@ -5,6 +5,7 @@ import About from "./main/about/about";
 import Contact from "./main/contact/contact";
 import Hero from "./main/hero/hero";
 import Portfolio from "./main/portfolio/portfolio";
+import Skills from "./main/skills/skills";
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
       <Header />
       <main className="wrapper">
         <Hero />
-        <About />
+        <Skills />
         <Portfolio />
         <Contact />
       </main>

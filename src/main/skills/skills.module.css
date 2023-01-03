@@ -1,0 +1,166 @@
+.skills {
+  display: grid;
+  padding: 0 2.4rem;
+  margin-bottom: 8rem;
+}
+
+.skill {
+  opacity: 0;
+}
+
+.skillAnimation {
+  animation-delay: 500ms;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-name: appear;
+}
+
+@keyframes appear {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+.skillsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.skillName {
+  font-weight: 700;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.percentage {
+  color: var(--lightGreen);
+  font-weight: 500;
+}
+
+.progressBar {
+  width: 100%;
+  height: 1.6rem;
+  background-color: rgba(114, 226, 174, 0.2);
+  border-radius: 99px;
+  position: relative;
+}
+
+.progress {
+  height: 100%;
+  background-color: var(--lightGreen);
+  border-radius: 99px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.progressBarAnimation {
+  animation-delay: 500ms;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+.progressBarAnimationHTML {
+  animation-name: progressBarHTML;
+}
+
+.progressBarAnimationJavascript {
+  animation-name: progressBarJavascript;
+}
+
+.progressBarAnimationReact {
+  animation-name: progressBarReact;
+}
+
+.progressBarAnimationNext {
+  animation-name: progressBarNext;
+}
+
+.progressBarAnimationMongo {
+  animation-name: progressBarMongo;
+}
+
+.progressBarAnimationTypescript {
+  animation-name: progressBarTypescript;
+}
+
+@keyframes progressBarHTML {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 90%;
+  }
+}
+
+@keyframes progressBarJavascript {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 75%;
+  }
+}
+
+@keyframes progressBarReact {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 50%;
+  }
+}
+
+@keyframes progressBarNext {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 50%;
+  }
+}
+
+@keyframes progressBarMongo {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 50%;
+  }
+}
+
+@keyframes progressBarTypescript {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .skillsContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .skillName {
+    font-size: 1.6rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .progressBar {
+    height: 2rem;
+  }
+
+  .skills {
+    margin-bottom: 16rem;
+  }
+}

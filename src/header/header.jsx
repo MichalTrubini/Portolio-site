@@ -15,7 +15,7 @@ const Header = () => {
     setTimeout(() => {
       setIsShown(false);
       setAnimate(false);
-    }, 1000);
+    }, 500);
   };
 
   return (

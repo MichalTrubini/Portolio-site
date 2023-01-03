@@ -36,6 +36,7 @@ const Footer = () => {
           <p className={styles.copyright}>
             &copy; 2022, created with React by <span className={styles.copyright__name}>Michal Trubini</span>
           </p>
+          <p className={styles.copyright}>Design by Nuclear__Themes</p>
         </div>
       </div>
     </footer>

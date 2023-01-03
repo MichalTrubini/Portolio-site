@@ -63,13 +63,13 @@ const Contact = () => {
     );
   };
 
-  const reCaptchaHandler = (e) => {
-    console.log(e)
-  };
-
   return (
     <div className={styles.contact} id="contactID">
-      <h2 className="heading__section">Contact me</h2>
+      <div className="headingContainer">
+        <h2 className="headingSection">Contact me</h2>
+        <div className='headingUnderline'></div>
+        <p className="headingBackground">Contact</p>
+      </div>
       <form className={styles.form} ref={form} onSubmit={sendEmail} noValidate>
         <div className={styles.formItem}>
           <label className={styles.label} htmlFor="username">
@@ -125,7 +125,12 @@ const Contact = () => {
             <p className={styles.errorMessage}>Messsage is required!</p>
           )}
         </div>
-        <ReCAPTCHA sitekey="6LcmisIjAAAAAJARBVeEJKe1VoOGFcz8HzxYZfd0" onChange={()=>{setReCaptcha(true)}}/>
+        <ReCAPTCHA
+          sitekey="6LcmisIjAAAAAJARBVeEJKe1VoOGFcz8HzxYZfd0"
+          onChange={() => {
+            setReCaptcha(true);
+          }}
+        />
         <div className={styles.buttonContainer}>
           <button type="submit" className={styles.sendButton} onClick={onButtonClick}>
             Send
