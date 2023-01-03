@@ -3,6 +3,7 @@ import Typewriter from "typewriter-effect";
 import heroImage from '../../assets/profil.jpeg'
 
 const Hero = () => {
+
   return (
     <div className={styles.hero} id='heroID'>
       <div className={styles.heroContainer}>

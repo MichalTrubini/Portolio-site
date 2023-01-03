@@ -1,5 +1,5 @@
-:root{ 
-  --backgroundMain:#282c34;
+:root {
+  --backgroundMain: #282c34;
   --lightGreen: rgb(114, 226, 174);
   --lightGreenOpacity: rgba(114, 226, 174, 0.1);
 }
@@ -10,9 +10,8 @@ html {
 
 body {
   margin: 0;
-  background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
-  font-family: 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  font-family: "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -57,7 +56,7 @@ p {
 }
 
 .mainHeader__light {
-color: white;
+  color: white;
 }
 
 .headingContainer {
@@ -98,7 +97,7 @@ color: white;
 }
 
 .headingUnderline::after {
-  content: '';
+  content: "";
   width: 0.6rem;
   height: 0.6rem;
   background-color: var(--lightGreen);
@@ -121,12 +120,14 @@ color: white;
   }
 }
 
-@media screen and (min-width:768px) {
+@media screen and (min-width: 768px) {
   .headingSection {
     font-size: 6rem;
     margin: 0 auto 12rem;
   }
-
+  .mainHeader {
+    padding-bottom: 1rem;
+  }
   .headingBackground {
     font-size: 16rem;
     line-height: 13rem;
@@ -149,16 +150,21 @@ color: white;
     from {
       transform: translateX(0);
     }
-  
+
     to {
       transform: translateX(22rem);
     }
   }
 }
 
-@media screen and (min-width:1440px) {
+@media screen and (min-width: 1440px) {
   .headingSection {
     font-size: 6rem;
     margin: 0 auto 10rem;
+  }
+
+  .mainHeader {
+    font-size: 6rem;
+    padding-bottom: 2rem;
   }
 }

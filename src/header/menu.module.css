@@ -61,4 +61,11 @@
     flex-direction: row;
     padding: 0;
   }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
 }

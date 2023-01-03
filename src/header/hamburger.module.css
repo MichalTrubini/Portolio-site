@@ -16,3 +16,10 @@
     background-color: var(--lightGreen);
     opacity: 1;
 }
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import styles from "./contact.module.css";
 import ReCAPTCHA from "react-google-recaptcha";
@@ -7,7 +7,7 @@ const Contact = () => {
   const form = useRef();
 
   //STATE MANAGEMENT ***START
-
+  const elRef = useRef()
   const [userInput, setUserInput] = useState({
     userName: "",
     userEmail: "",
@@ -18,6 +18,7 @@ const Contact = () => {
   const [sendOK, setSendOK] = useState(false);
   const [sendNOK, setSendNOK] = useState(false);
   const [reCaptcha, setReCaptcha] = useState(false);
+  const [intersection, setIntersection] = useState(false);
 
   const onUpdateField = (e) => {
     const nextFormState = {
@@ -62,15 +63,24 @@ const Contact = () => {
       }
     );
   };
+  useEffect(() => {
 
+    const observer = new IntersectionObserver((entries) => {
+      const entry = entries[0];
+      setIntersection(entry.isIntersecting);
+    });
+
+   observer.observe(elRef.current);
+
+  }, []);
   return (
-    <div className={styles.contact} id="contactID">
+    <div className={ styles.contact} id="contactID" ref={elRef}>
       <div className="headingContainer">
         <h2 className="headingSection">Contact me</h2>
         <div className='headingUnderline'></div>
         <p className="headingBackground">Contact</p>
       </div>
-      <form className={styles.form} ref={form} onSubmit={sendEmail} noValidate>
+      <form className={intersection ? `${styles.form} ${styles.formAnimation}` : styles.form} ref={form} onSubmit={sendEmail} noValidate>
         <div className={styles.formItem}>
           <label className={styles.label} htmlFor="username">
             Name
