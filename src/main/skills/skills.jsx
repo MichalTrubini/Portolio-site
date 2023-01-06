@@ -17,70 +17,63 @@ const Skills = () => {
       id: "hmtl",
       tech: "HTML & CSS",
       percentage: "90%",
-      class: 'progressBarAnimationHTML'
+      class: "progressBarAnimationHTML",
     },
     {
       id: "javascript",
       tech: "Javascript",
       percentage: "75%",
-      class: 'progressBarAnimationJavascript'
+      class: "progressBarAnimationJavascript",
     },
     {
       id: "react",
       tech: "React JS",
       percentage: "50%",
-      class: 'progressBarAnimationReact'
+      class: "progressBarAnimationReact",
     },
     {
       id: "next",
       tech: "Next JS",
       percentage: "50%",
-      class: 'progressBarAnimationNext'
+      class: "progressBarAnimationNext",
     },
     {
       id: "mongo",
       tech: "MongoDB",
       percentage: "50%",
-      class: 'progressBarAnimationMongo'
+      class: "progressBarAnimationMongo",
     },
     {
       id: "typescript",
       tech: "Typescript",
       percentage: "50%",
-      class: 'progressBarAnimationTypescript'
+      class: "progressBarAnimationTypescript",
     },
   ];
 
   useEffect(() => {
-
     //Two observers declared and attached to two arrays which were split based on odd/even indices.
-    //Having one observer worked fine if observed elements were underneath each other. 
+    //Having one observer worked fine if observed elements were underneath each other.
     //If observed elements were besides each other in two columns, then observer was triggerred only for elements in the first column.
 
     const allWithClass1 = Array.from(document.getElementsByClassName("skill"));
 
     let even = allWithClass1.filter((v, i) => i % 2);
     let odd = allWithClass1.filter((v, i) => !(i % 2));
+    const observer1 = new IntersectionObserver(handleIntersection);
+    const observer2 = new IntersectionObserver(handleIntersection);
 
-    const observer1 = new IntersectionObserver((entries) => {
+    function handleIntersection(entries) {
       const entry = entries[0];
-      setIntersection((prevData) => ({
-        ...prevData,
-        [entry.target.getAttribute("data-type")]: entry.isIntersecting,
-      }));
-    });
-
-    const observer2 = new IntersectionObserver((entries) => {
-      const entry = entries[0];
-      setIntersection((prevData) => ({
-        ...prevData,
-        [entry.target.getAttribute("data-type")]: entry.isIntersecting,
-      }));
-    });
+      if (intersection[entry.target.getAttribute("data-type")] === false)
+        setIntersection((prevData) => ({
+          ...prevData,
+          [entry.target.getAttribute("data-type")]: entry.isIntersecting,
+        }));
+    }
 
     even.forEach((item) => observer1.observe(item));
     odd.forEach((item) => observer2.observe(item));
-
   }, []);
 
   return (
@@ -93,7 +86,9 @@ const Skills = () => {
       <div className={styles.skillsContainer}>
         {progressFill.map((item, i) => (
           <div
-            className={intersection[item.id] ? `${styles.skillAnimation} ${styles.skill} skill` : "skill"}
+            className={
+              intersection[item.id] ? `${styles.skillAnimation} ${styles.skill} skill` : `${styles.skill} skill`
+            }
             key={item.tech}
             data-type={item.id}
           >
@@ -101,7 +96,13 @@ const Skills = () => {
               {item.tech} - <span className={styles.percentage}>({item.percentage})</span>
             </p>
             <div className={styles.progressBar}>
-              <div className={intersection[item.id] ? `${styles.progress} ${styles.progressBarAnimation} ${styles[item.class]}` : `${styles.progress}` }></div>
+              <div
+                className={
+                  intersection[item.id]
+                    ? `${styles.progress} ${styles.progressBarAnimation} ${styles[item.class]}`
+                    : `${styles.progress}`
+                }
+              ></div>
             </div>
           </div>
         ))}

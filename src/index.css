@@ -48,17 +48,6 @@ p {
   overflow: hidden;
 }
 
-.mainHeader {
-  font-size: 4rem;
-  line-height: 2rem;
-  color: var(--lightGreen);
-  letter-spacing: 2px;
-}
-
-.mainHeader__light {
-  color: white;
-}
-
 .headingContainer {
   position: relative;
   display: grid;

@@ -4,6 +4,7 @@ import useWindowDimensions from "../utilities/WindowDimensions";
 import Menu from "./menu";
 import Hamburger from "./hamburger";
 import MobileMenu from "./mobileMenu";
+import Logo from "./logo";
 
 const Header = () => {
   const { width } = useWindowDimensions();
@@ -21,6 +22,7 @@ const Header = () => {
   return (
     <header className={styles.header} id='headerID'>
       <div className={styles.container}>
+        <Logo />
         {width > 768 ? (
           <Menu />
         ) : (

@@ -1,10 +1,8 @@
 import { useState } from "react";
 import styles from "./menu.module.css";
-import useWindowDimensions from "../utilities/WindowDimensions";
 
 const Menu = (props) => {
   const [selected, setSelected] = useState("home");
-  const { width } = useWindowDimensions();
 
   const scrollHandler = (item) => {
     const element = document.getElementById(item);
@@ -36,11 +34,6 @@ const Menu = (props) => {
 
   return (
     <nav className={`${styles.nav}`}>
-      {width > 768 ? (
-        <h1 className="mainHeader">
-          ttd<span className="mainHeader__light">.</span>
-        </h1>
-      ) : null}
       <ul className={styles.navList}>
         <li
           className={selected === "home" ? `${styles.navListItem} ${styles.navListItem__selected}` : styles.navListItem}
