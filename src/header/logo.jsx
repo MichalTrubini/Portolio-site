@@ -1,6 +1,6 @@
 import styles from "./logo.module.css";
 
-const Logo = (props) => {
+const Logo = () => {
 
   const scrollHandler = (item) => {
     const element = document.getElementById(item);
