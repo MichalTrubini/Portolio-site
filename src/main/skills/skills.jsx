@@ -8,47 +8,47 @@ const Skills = () => {
     javascript: false,
     react: false,
     next: false,
-    mongo: false,
+    css: false,
     typescript: false,
   });
 
   const progressFill = [
     {
       id: "hmtl",
-      tech: "HTML & CSS",
-      percentage: "90%",
+      tech: "HTML",
+      percentage: "13%",
       class: "progressBarAnimationHTML",
     },
     {
+      id: "css",
+      tech: "CSS",
+      percentage: "66%",
+      class: "progressBarAnimationCSS",
+    },
+    {
       id: "javascript",
-      tech: "Javascript",
-      percentage: "75%",
+      tech: "Vanilla javascript",
+      percentage: "4%",
       class: "progressBarAnimationJavascript",
     },
     {
       id: "react",
       tech: "React JS",
-      percentage: "50%",
+      percentage: "8%",
       class: "progressBarAnimationReact",
     },
     {
       id: "next",
       tech: "Next JS",
-      percentage: "50%",
+      percentage: "9%",
       class: "progressBarAnimationNext",
-    },
-    {
-      id: "mongo",
-      tech: "MongoDB",
-      percentage: "50%",
-      class: "progressBarAnimationMongo",
     },
     {
       id: "typescript",
       tech: "Typescript",
-      percentage: "50%",
+      percentage: "5%",
       class: "progressBarAnimationTypescript",
-    },
+    }
   ];
 
   useEffect(() => {
@@ -74,7 +74,7 @@ const Skills = () => {
 
     even.forEach((item) => observer1.observe(item));
     odd.forEach((item) => observer2.observe(item));
-  }, []);
+  }, [intersection]);
 
   return (
     <div className={styles.skills} id="skillsID">
@@ -82,9 +82,10 @@ const Skills = () => {
         <h2 className="headingSection">My Skills</h2>
         <div className="headingUnderline"></div>
         <p className="headingBackground">Skills</p>
+        <p className={styles.note}><span className={styles.note__accent}>1 year</span > of coding, <span className={styles.note__accent}>57 500 </span>lines written, of which:</p>
       </div>
       <div className={styles.skillsContainer}>
-        {progressFill.map((item, i) => (
+        {progressFill.map((item) => (
           <div
             className={
               intersection[item.id] ? `${styles.skillAnimation} ${styles.skill} skill` : `${styles.skill} skill`

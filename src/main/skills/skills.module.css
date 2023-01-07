@@ -44,6 +44,20 @@
   font-weight: 500;
 }
 
+.note {
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
+  position: relative;
+  top: -35px;
+  text-align: center;
+}
+
+.note__accent {
+  color: var(--lightGreen);
+}
+
 .progressBar {
   width: 100%;
   height: 1.6rem;
@@ -71,6 +85,10 @@
   animation-name: progressBarHTML;
 }
 
+.progressBarAnimationCSS {
+  animation-name: progressBarCSS;
+}
+
 .progressBarAnimationJavascript {
   animation-name: progressBarJavascript;
 }
@@ -83,10 +101,6 @@
   animation-name: progressBarNext;
 }
 
-.progressBarAnimationMongo {
-  animation-name: progressBarMongo;
-}
-
 .progressBarAnimationTypescript {
   animation-name: progressBarTypescript;
 }
@@ -96,7 +110,16 @@
     width: 0%;
   }
   to {
-    width: 90%;
+    width: 13%;
+  }
+}
+
+@keyframes progressBarCSS {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 66%;
   }
 }
 
@@ -105,7 +128,7 @@
     width: 0%;
   }
   to {
-    width: 75%;
+    width: 4%;
   }
 }
 
@@ -114,7 +137,7 @@
     width: 0%;
   }
   to {
-    width: 50%;
+    width: 8%;
   }
 }
 
@@ -123,16 +146,7 @@
     width: 0%;
   }
   to {
-    width: 50%;
-  }
-}
-
-@keyframes progressBarMongo {
-  from {
-    width: 0%;
-  }
-  to {
-    width: 50%;
+    width: 9%;
   }
 }
 
@@ -141,7 +155,7 @@
     width: 0%;
   }
   to {
-    width: 50%;
+    width: 5%;
   }
 }
 
@@ -162,5 +176,9 @@
 
   .skills {
     margin-bottom: 16rem;
+  }
+
+  .note {
+    top: -45px;
   }
 }
