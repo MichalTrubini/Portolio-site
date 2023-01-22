@@ -3,16 +3,10 @@ import styles from "./logo.module.css";
 const Logo = () => {
 
   const scrollHandler = (item) => {
-    const element = document.getElementById(item);
-    const header = document.getElementById("headerID");
-
-    let headerOffset = header.offsetHeight;
-    let elementPosition = element.getBoundingClientRect().top;
-    let offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
     function windowScroll() {
       window.scrollTo({
-        top: offsetPosition,
+        top: 0,
         behavior: "smooth",
       });
     }

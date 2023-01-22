@@ -3,6 +3,10 @@ import gitHubDark from "../assets/githubDark.svg";
 import gitHubLight from "../assets/githubLight.svg";
 
 const Footer = () => {
+
+  const date = new Date();
+  const currentYear = date.getFullYear()
+
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
@@ -34,7 +38,7 @@ const Footer = () => {
         </div>
         <div>
           <p className={styles.copyright}>
-            &copy; 2022, created with React by <span className={styles.copyright__name}>Michal Trubini</span>
+            &copy; {currentYear}, created with React by <span className={styles.copyright__name}>Michal Trubini</span>
           </p>
           <p className={styles.copyright}>Design by Nuclear__Themes</p>
         </div>

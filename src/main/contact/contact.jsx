@@ -1,13 +1,14 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import styles from "./contact.module.css";
 import ReCAPTCHA from "react-google-recaptcha";
+import { motion } from "framer-motion";
 
 const Contact = () => {
   const form = useRef();
 
   //STATE MANAGEMENT ***START
-  const elRef = useRef()
+  const elRef = useRef();
   const [userInput, setUserInput] = useState({
     userName: "",
     userEmail: "",
@@ -18,7 +19,6 @@ const Contact = () => {
   const [sendOK, setSendOK] = useState(false);
   const [sendNOK, setSendNOK] = useState(false);
   const [reCaptcha, setReCaptcha] = useState(false);
-  const [intersection, setIntersection] = useState(false);
 
   const onUpdateField = (e) => {
     const nextFormState = {
@@ -63,24 +63,39 @@ const Contact = () => {
       }
     );
   };
-  useEffect(() => {
 
-    const observer = new IntersectionObserver((entries) => {
-      const entry = entries[0];
-      setIntersection(entry.isIntersecting);
-    });
+  const animation = {
+    offscreen: {
+      y: 40,
+      opacity: 0,
+    },
+    onscreen: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+        delay: 0.2,
+      },
+    },
+  };
 
-   observer.observe(elRef.current);
-
-  }, []);
   return (
-    <div className={ styles.contact} id="contactID" ref={elRef}>
+    <div className={styles.contact} id="contactID" ref={elRef}>
       <div className="headingContainer">
         <h2 className="headingSection">Contact me</h2>
-        <div className='headingUnderline'></div>
+        <div className="headingUnderline"></div>
         <p className="headingBackground">Contact</p>
       </div>
-      <form className={intersection ? `${styles.form} ${styles.formAnimation}` : styles.form} ref={form} onSubmit={sendEmail} noValidate>
+      <motion.form
+        className={styles.form}
+        ref={form}
+        onSubmit={sendEmail}
+        noValidate
+        initial={"offscreen"}
+        whileInView={"onscreen"}
+        viewport={{ once: false, amount: 0.1 }}
+        variants={animation}
+      >
         <div className={styles.formItem}>
           <label className={styles.label} htmlFor="username">
             Name
@@ -148,7 +163,7 @@ const Contact = () => {
           {userSubmit && sendOK && <p className={styles.messageOK}>Message sent!</p>}
           {userSubmit && sendNOK && <p className={styles.messageNOK}>Error sending a message!</p>}
         </div>
-      </form>
+      </motion.form>
     </div>
   );
 };

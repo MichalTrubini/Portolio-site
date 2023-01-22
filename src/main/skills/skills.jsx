@@ -1,16 +1,40 @@
 import React from "react";
-import { useEffect, useState } from "react";
 import styles from "./skills.module.css";
+import { motion } from "framer-motion";
 
 const Skills = () => {
-  const [intersection, setIntersection] = useState({
-    hmtl: false,
-    javascript: false,
-    react: false,
-    next: false,
-    css: false,
-    typescript: false,
-  });
+
+  const animateParent = {
+    offscreen: {
+      y: 40,
+      opacity: 0,
+    },
+    onscreen: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+        delay: 0.2,
+      },
+    },
+  };
+
+  const animateChild = (item) => {
+
+    const animation = {
+    offscreen: {
+      width: '0%',
+    },
+    onscreen: {
+      width: item,
+      transition: {
+        duration: 1,
+      },
+    }
+  }
+
+  return animation
+  };
 
   const progressFill = [
     {
@@ -51,31 +75,6 @@ const Skills = () => {
     }
   ];
 
-  useEffect(() => {
-    //Two observers declared and attached to two arrays which were split based on odd/even indices.
-    //Having one observer worked fine if observed elements were underneath each other.
-    //If observed elements were besides each other in two columns, then observer was triggerred only for elements in the first column.
-
-    const allWithClass1 = Array.from(document.getElementsByClassName("skill"));
-
-    let even = allWithClass1.filter((v, i) => i % 2);
-    let odd = allWithClass1.filter((v, i) => !(i % 2));
-    const observer1 = new IntersectionObserver(handleIntersection);
-    const observer2 = new IntersectionObserver(handleIntersection);
-
-    function handleIntersection(entries) {
-      const entry = entries[0];
-      if (intersection[entry.target.getAttribute("data-type")] === false)
-        setIntersection((prevData) => ({
-          ...prevData,
-          [entry.target.getAttribute("data-type")]: entry.isIntersecting,
-        }));
-    }
-
-    even.forEach((item) => observer1.observe(item));
-    odd.forEach((item) => observer2.observe(item));
-  }, [intersection]);
-
   return (
     <div className={styles.skills} id="skillsID">
       <div className="headingContainer">
@@ -86,26 +85,24 @@ const Skills = () => {
       </div>
       <div className={styles.skillsContainer}>
         {progressFill.map((item) => (
-          <div
+          <motion.div
             className={
-              intersection[item.id] ? `${styles.skillAnimation} ${styles.skill} skill` : `${styles.skill} skill`
+              `${styles.skill} skill`
             }
             key={item.tech}
             data-type={item.id}
+            initial={"offscreen"} whileInView={"onscreen"} viewport={{ once: false, amount: 0.1 }} variants={animateParent}
           >
             <p className={styles.skillName}>
               {item.tech} - <span className={styles.percentage}>({item.percentage})</span>
             </p>
             <div className={styles.progressBar}>
-              <div
-                className={
-                  intersection[item.id]
-                    ? `${styles.progress} ${styles.progressBarAnimation} ${styles[item.class]}`
-                    : `${styles.progress}`
-                }
-              ></div>
+              <motion.div
+                className={styles.progress}
+                initial={"offscreen"} whileInView={"onscreen"} viewport={{ once: false, amount: 0.1 }} variants={animateChild(item.percentage)}
+              ></motion.div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>
