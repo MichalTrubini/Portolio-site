@@ -67,14 +67,15 @@ const portfolioItems = [
 const Portfolio = () => {
   return (
     <div className={styles.portfolio} id="portfolioID">
-      <div className='headingContainer'>
+      <div className="headingContainer">
         <h2 className="headingSection">My Portfolio</h2>
-        <div className='headingUnderline'></div>
+        <div className="headingUnderline"></div>
         <p className="headingBackground">Portfolio</p>
       </div>
       <div className={styles.works}>
         {portfolioItems.map((item) => (
           <PortfolioItem
+            key={item.id}
             id={item.id}
             src={item.src}
             title={item.title}

@@ -6,19 +6,13 @@ import linkIcon from "../../assets/link.png";
 
 const PortfolioItem = (props) => {
   const [isShown, setIsShown] = useState(false);
-  const [animate, setAnimate] = useState(false)
-
-  const animateFadeOut = () => {
-    setAnimate(true);
-    setTimeout(()=>{setIsShown(false);setAnimate(false)},450);
-  }
 
   return (
-    <div className={isShown & !animate ? `${styles.item} ${styles.itemUp}` : `${styles.item} ${styles.itemDown}`} key={props.id} onMouseEnter={() => setIsShown(true)} onMouseLeave={animateFadeOut}>
+    <div className={isShown ? `${styles.item} ${styles.itemUp}` : `${styles.item} ${styles.itemDown}`} key={props.id} onMouseEnter={() => setIsShown(true)} onMouseLeave={() => setIsShown(false)}>
       <div className={styles.imageContainer} >
         <img src={props.src} alt={props.alt} className={styles.image} />
-          {isShown &&
-          <div className={!animate ? `${styles.overlay} ${styles.overlayFadeIn}` : `${styles.overlay} ${styles.overlayFadeOut}`}>
+
+          <div className={isShown ? `${styles.overlay} ${styles.overlayFadeIn}` : `${styles.overlay} ${styles.overlayFadeOut}`}>
             <a href={props.gitLink} target="_blank" rel="noreferrer">
               <div className={styles.iconContainer}>
                 <img src={codeIcon} alt="source code" className={`${styles.iconImageOne} ${styles.iconImage}`} />
@@ -29,7 +23,7 @@ const PortfolioItem = (props) => {
                 <img src={linkIcon} alt="source code" className={`${styles.iconImageTwo} ${styles.iconImage}`} />
               </div>
             </a>
-          </div>}
+          </div>
 
       </div>
       <h3 className={styles.title}>{props.title}</h3>
