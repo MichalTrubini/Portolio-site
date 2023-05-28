@@ -4,21 +4,14 @@ import imageEntertainment from "../../assets/entertainment_app.jpg";
 import imageEcommerce from "../../assets/ecommerce.jpg";
 import imageSubscription from "../../assets/subscription.jpg";
 import imageCalculator from "../../assets/calculator.jpg";
-import imageTips from "../../assets/tips.jpg";
+//import imageTips from "../../assets/tips.jpg";
 import imagePlanets from "../../assets/planets.jpg";
+import imageSkinekt from "../../assets/skinekt.jpg"
 
 const portfolioItems = [
+
   {
     id: 1,
-    src: imageEntertainment,
-    alt: "Entertainment app",
-    title: "Entertainment app",
-    techStack: ["Next.js", "MongoDB"],
-    git: "https://github.com/MichalTrubini/NEXT_entertainment-web-app",
-    live: "https://next-entertainment-v1.vercel.app/",
-  },
-  {
-    id: 2,
     src: imageEcommerce,
     alt: "Ecommerce app",
     title: "Ecommerce app",
@@ -27,7 +20,25 @@ const portfolioItems = [
     live: "https://next-audiophile-e-commerce-website.vercel.app/",
   },
   {
+    id: 2,
+    src: imageSkinekt,
+    alt: "Skinekt landing page",
+    title: "Skinekt landing page",
+    techStack: ["React.js", "Typescript"],
+    git: "https://github.com/MichalTrubini/SPRAVIM_job2",
+    live: "https://exquisite-entremet-10ae99.netlify.app/",
+  },
+  {
     id: 3,
+    src: imageEntertainment,
+    alt: "Entertainment app",
+    title: "Entertainment app",
+    techStack: ["Next.js", "MongoDB"],
+    git: "https://github.com/MichalTrubini/NEXT_entertainment-web-app",
+    live: "https://next-entertainment-v1.vercel.app/",
+  },
+  {
+    id: 4,
     src: imageSubscription,
     alt: "Subscription app",
     title: "Subscription app",
@@ -36,32 +47,32 @@ const portfolioItems = [
     live: "https://next-coffeeroasters-subscription-site-4e83.vercel.app/",
   },
   {
-    id: 4,
+    id: 5,
     src: imagePlanets,
     alt: "Planets info app",
     title: "Planets info app",
-    techStack: ["React", "SASS"],
+    techStack: ["React.js", "SASS"],
     git: "https://github.com/MichalTrubini/REACT__planets-fact-site",
     live: "https://curious-chebakia-006342.netlify.app/",
   },
   {
-    id: 5,
+    id: 6,
     src: imageCalculator,
     alt: "Calculator app",
     title: "Calculator app",
-    techStack: ["React", "SASS"],
+    techStack: ["React.js", "SASS"],
     git: "https://github.com/MichalTrubini/REACT_Calculator-app",
     live: "https://iridescent-malasada-5fcfa1.netlify.app/",
   },
-  {
-    id: 6,
+/*   {
+    id: 7,
     src: imageTips,
     alt: "Tips splitter app",
     title: "Tips splitter app",
     techStack: ["Javascript", "SASS"],
     git: "https://github.com/MichalTrubini/Tip-calculator-app",
     live: "https://michaltrubini.github.io/Tip-calculator-app/",
-  },
+  }, */
 ];
 
 const Portfolio = () => {

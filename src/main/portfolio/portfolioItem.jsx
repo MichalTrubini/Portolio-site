@@ -11,7 +11,6 @@ const PortfolioItem = (props) => {
     <div className={isShown ? `${styles.item} ${styles.itemUp}` : `${styles.item} ${styles.itemDown}`} key={props.id} onMouseEnter={() => setIsShown(true)} onMouseLeave={() => setIsShown(false)}>
       <div className={styles.imageContainer} >
         <img src={props.src} alt={props.alt} className={styles.image} />
-
           <div className={isShown ? `${styles.overlay} ${styles.overlayFadeIn}` : `${styles.overlay} ${styles.overlayFadeOut}`}>
             <a href={props.gitLink} target="_blank" rel="noreferrer">
               <div className={styles.iconContainer}>
@@ -24,7 +23,6 @@ const PortfolioItem = (props) => {
               </div>
             </a>
           </div>
-
       </div>
       <h3 className={styles.title}>{props.title}</h3>
       <ul className={styles.list}>
