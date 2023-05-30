@@ -29,6 +29,7 @@
     display: flex;
     justify-content: center;
     gap: 3rem;
+    flex-wrap: wrap;
 }
 
 .image {
@@ -54,8 +55,8 @@
 }
 
 .imageContainer {
-    width: 150px;
-    height: 150px;
+    width: 250px;
+    height: 250px;
     display: block;
     border-radius: 100%;
     border: 5px solid var(--lightGreen);
@@ -72,11 +73,6 @@
 
     .listItem {
         font-size: 1.6rem;
-    }
-
-    .imageContainer {
-        width: 250px;
-        height: 250px;
     }
 }
 

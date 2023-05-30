@@ -11,7 +11,7 @@ const Menu = (props) => {
   return (
     <nav className={`${styles.nav}`}>
       <ul className={styles.navList}>
-        <Link activeClass={styles.active} to="heroID" spy={true} smooth={true} offset={-100} duration={500}>
+        <Link activeClass={styles.active} to="heroID" spy={true} smooth={true} offset={0} duration={500}>
           <li
             className={styles.navListItem}
             onClick={() => {
@@ -21,7 +21,7 @@ const Menu = (props) => {
             <span className={styles.number}>01</span>home
           </li>
         </Link>
-        <Link activeClass={styles.active} to="skillsID" spy={true} smooth={true} offset={-100} duration={500}>
+        <Link activeClass={styles.active} to="skillsID" spy={true} smooth={true} offset={-150} duration={500}>
           <li
             className={styles.navListItem}
             onClick={() => {
@@ -31,7 +31,7 @@ const Menu = (props) => {
             <span className={styles.number}>02</span>skills
           </li>
         </Link>
-        <Link activeClass={styles.active} to="portfolioID" spy={true} smooth={true} offset={-100} duration={500}>
+        <Link activeClass={styles.active} to="portfolioID" spy={true} smooth={true} offset={-150} duration={500}>
           <li
             className={styles.navListItem}
             onClick={() => {
@@ -41,7 +41,7 @@ const Menu = (props) => {
             <span className={styles.number}>03</span>portfolio
           </li>
         </Link>
-        <Link activeClass={styles.active} to="contactID" spy={true} smooth={true} offset={-100} duration={500}>
+        <Link activeClass={styles.active} to="contactID" spy={true} smooth={true} offset={-150} duration={500}>
           <li
             className={styles.navListItem}
             onClick={() => {
