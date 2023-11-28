@@ -81,7 +81,7 @@ const Skills = () => {
         <h2 className="headingSection">My Skills</h2>
         <div className="headingUnderline"></div>
         <p className="headingBackground">Skills</p>
-        <p className={styles.note}><span className={styles.note__accent}>18 months</span > of coding, <span className={styles.note__accent}>60 000 </span>lines written, of which:</p>
+        <p className={styles.note}><span className={styles.note__accent}>2 years</span > of coding, <span className={styles.note__accent}>60 000 </span>lines written, of which:</p>
       </div>
       <div className={styles.skillsContainer}>
         {progressFill.map((item) => (
