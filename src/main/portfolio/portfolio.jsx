@@ -8,6 +8,9 @@ import imageSkinekt from "../../assets/skinekt.jpg";
 import imageSubscription from "../../assets/subscription.jpg";
 import imageRebbid from "../../assets/rebbid.jpg";
 import imageRb from "../../assets/rb.jpg";
+import imageAlza1 from "../../assets/alza1.jpg";
+import imageAlza2 from "../../assets/alza2.jpg";
+import imageFamily from "../../assets/familyhistory.jpg";
 
 const demoProjects = [
   {
@@ -103,6 +106,36 @@ const commercialProjects = [
     live: "https://share.rebbid.com/?id=1989",
     type: "commercialProject",
   },
+  {
+    id: 4,
+    src: imageAlza1,
+    alt: "Alza html template",
+    title: "Alza html template",
+    techStack: ["html", "css", "javascript"],
+    git: "",
+    live: "https://main--comforting-bubblegum-f7146a.netlify.app/",
+    type: "commercialProject",
+  },
+  {
+    id: 5,
+    src: imageAlza2,
+    alt: "Alza html template",
+    title: "Alza html template",
+    techStack: ["html", "css", "javascript"],
+    git: "",
+    live: "https://ornate-brigadeiros-86ef93.netlify.app/",
+    type: "commercialProject",
+  },
+  {
+    id: 5,
+    src: imageFamily,
+    alt: "Family history landing page",
+    title: "Family history",
+    techStack: ["html", "css", "javascript"],
+    git: "",
+    live: "https://familyhistory.sk/",
+    type: "commercialProject",
+  },
 ];
 
 const Portfolio = () => {
@@ -114,10 +147,10 @@ const Portfolio = () => {
         <p className="headingBackground">Portfolio</p>
       </div>
       <div>
-        <h3 className={styles.subHeading}>Demo projects</h3>
+        <h3 className={styles.subHeading}>Commercial projects</h3>
       </div>
       <div className={styles.works}>
-        {demoProjects.map((item) => (
+        {commercialProjects.map((item) => (
           <PortfolioItem
             key={item.id}
             id={item.id}
@@ -132,10 +165,10 @@ const Portfolio = () => {
         ))}
       </div>
       <div>
-        <h3 className={styles.subHeading}>Commercial projects</h3>
+        <h3 className={styles.subHeading}>Demo projects</h3>
       </div>
       <div className={styles.works}>
-        {commercialProjects.map((item) => (
+        {demoProjects.map((item) => (
           <PortfolioItem
             key={item.id}
             id={item.id}
