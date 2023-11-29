@@ -103,7 +103,7 @@ const commercialProjects = [
     title: "Riesime byvanie ad page",
     techStack: ["React.js", "Typescript"],
     git: "",
-    live: "https://share.rebbid.com/?id=1989",
+    live: "https://app-test.riesimebyvanie.sk/?id=1010",
     type: "commercialProject",
   },
   {
