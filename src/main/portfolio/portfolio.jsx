@@ -28,7 +28,7 @@ const demoProjects = [
     src: imageInvoice,
     alt: "Invoice app",
     title: "Invoice app",
-    techStack: ["Next.js", "Typescript"],
+    techStack: ["Next.js", "Typescript", "MongoDB"],
     git: "https://github.com/MichalTrubini/NEXT-Invoice-app",
     live: "https://next-invoice-app-ochre.vercel.app/",
     type: "demoProject",
