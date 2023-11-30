@@ -20,6 +20,7 @@ const PortfolioItem = (props) => {
     >
       <div className={styles.imageContainer}>
         <img src={props.src} alt={props.alt} className={styles.image} />
+        <div className={styles.imageOverlay}></div>
         <div
           className={
             isShown
