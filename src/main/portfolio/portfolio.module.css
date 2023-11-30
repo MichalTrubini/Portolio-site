@@ -22,6 +22,7 @@
 
 }
 
+
 @media screen and (min-width:525px) {
     .works {
         grid-template-columns: 1fr 1fr;

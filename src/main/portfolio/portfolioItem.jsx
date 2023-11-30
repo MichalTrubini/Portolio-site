@@ -28,7 +28,7 @@ const PortfolioItem = (props) => {
           }
         >
           {props.type === "demoProject" && (
-            <a href={props.gitLink} target="_blank" rel="noreferrer">
+            <a href={props.gitLink} target="_blank" rel="noreferrer" style={{display: "flex", flexDirection:"column", alignItems:"center"}}>
               <div className={styles.iconContainer}>
                 <img
                   src={codeIcon}
@@ -36,9 +36,10 @@ const PortfolioItem = (props) => {
                   className={`${styles.iconImageOne} ${styles.iconImage}`}
                 />
               </div>
+              <p className={styles.text}>source code</p>
             </a>
           )}
-          <a href={props.liveLink} target="_blank" rel="noreferrer">
+          <a href={props.liveLink} target="_blank" rel="noreferrer" style={{display: "flex", flexDirection:"column", alignItems:"center"}}>
             <div className={styles.iconContainer}>
               <img
                 src={linkIcon}
@@ -46,6 +47,7 @@ const PortfolioItem = (props) => {
                 className={`${styles.iconImageTwo} ${styles.iconImage}`}
               />
             </div>
+            <p className={styles.text}>live demo</p>
           </a>
         </div>
       </div>
