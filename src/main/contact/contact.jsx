@@ -28,17 +28,49 @@ const Contact = () => {
     setUserInput(nextFormState);
   };
 
-  const onButtonClick = () => {
-    setUserSubmit(true);
-  };
+  const [formError, setFormError] = useState({
+    userName: false,
+    userEmail: false,
+    emailFormat: false,
+    userMessage: false,
+  });
+
+  function formValidation() {
+    if (userInput.userName.trim().length === 0) {
+      setFormError((prev) => ({ ...prev, userName: true }));
+      console.log("set to true");
+    } else {
+      setFormError((prev) => ({ ...prev, userName: false }));
+      console.log("set to false");
+    }
+
+    if (userInput.userEmail.trim().length === 0) {
+      setFormError((prev) => ({ ...prev, userEmail: true }));
+    } else {
+      setFormError((prev) => ({ ...prev, userEmail: false }));
+    }
+
+    if (userInput.userMessage.trim().length === 0) {
+      setFormError((prev) => ({ ...prev, userMessage: true }));
+    } else {
+      setFormError((prev) => ({ ...prev, userMessage: false }));
+    }
+
+    if (regex.test(userInput.userEmail) === false) {
+      setFormError((prev) => ({ ...prev, emailFormat: true }));
+    } else {
+      setFormError((prev) => ({ ...prev, emailFormat: false }));
+    }
+  }
 
   //STATE MANAGEMENT ***END
 
-  const regex = /^[\w]{1,}[\w.+-]{0,}@[\w-]{2,}([.][a-zA-Z]{2,}|[.][\w-]{2,}[.][a-zA-Z]{2,})$/;
+  const regex =
+    /^[\w]{1,}[\w.+-]{0,}@[\w-]{2,}([.][a-zA-Z]{2,}|[.][\w-]{2,}[.][a-zA-Z]{2,})$/;
 
   const sendEmail = (e) => {
     e.preventDefault();
-
+    formValidation();
     if (
       userInput.userName.trim().length === 0 ||
       userInput.userEmail.trim().length === 0 ||
@@ -47,21 +79,28 @@ const Contact = () => {
       reCaptcha === false
     )
       return;
-
-    emailjs.sendForm("service_ztdjbal", "template_4dso9vt", form.current, "7IeMeuJy_-64PCwkj").then(
-      (result) => {
-        setSendOK(true);
-        setTimeout(() => {
-          setSendOK(false);
+    setUserSubmit(true);
+    emailjs
+      .sendForm(
+        "service_ztdjbal",
+        "template_4dso9vt",
+        form.current,
+        "7IeMeuJy_-64PCwkj"
+      )
+      .then(
+        (result) => {
+          setSendOK(true);
           setUserSubmit(false);
-          setUserInput({ userName: "", userEmail: "", userMessage: "" });
-          e.target.reset();
-        }, 1500);
-      },
-      (error) => {
-        setSendNOK(true);
-      }
-    );
+          setTimeout(() => {
+            setSendOK(false);
+            setUserInput({ userName: "", userEmail: "", userMessage: "" });
+            e.target.reset();
+          }, 1500);
+        },
+        (error) => {
+          setSendNOK(true);
+        }
+      );
   };
 
   const animation = {
@@ -91,6 +130,7 @@ const Contact = () => {
         ref={form}
         onSubmit={sendEmail}
         noValidate
+        autoComplete="off"
         initial={"offscreen"}
         whileInView={"onscreen"}
         viewport={{ once: false, amount: 0.1 }}
@@ -108,8 +148,12 @@ const Contact = () => {
             placeholder="Enter your name..."
             value={userInput.name}
             onChange={onUpdateField}
+            autoComplete="username"
+            onFocus={() => {
+              setFormError((prev) => ({ ...prev, userName: false }));
+            }}
           />
-          {userSubmit && userInput.userName.trim().length === 0 && (
+          {formError.userName && (
             <p className={styles.errorMessage}>Name is required!</p>
           )}
         </div>
@@ -125,12 +169,19 @@ const Contact = () => {
             placeholder="Enter your email..."
             value={userInput.email}
             onChange={onUpdateField}
+            onFocus={() => {
+              setFormError((prev) => ({
+                ...prev,
+                emailFormat: false,
+                userEmail: false,
+              }));
+            }}
           />
-          {userSubmit & (userInput.userEmail.trim().length === 0) ? (
+          {formError.userEmail && (
             <p className={styles.errorMessage}>Email is required!</p>
-          ) : (
-            userSubmit &&
-            regex.test(userInput.userEmail) === false && <p className={styles.errorMessage}>Incorrect format!</p>
+          )}
+          {formError.emailFormat && !formError.userEmail && (
+            <p className={styles.errorMessage}>Incorrect format!</p>
           )}
         </div>
         <div className={styles.formItem}>
@@ -145,8 +196,11 @@ const Contact = () => {
             placeholder="Write your message..."
             value={userInput.message}
             onChange={onUpdateField}
+            onFocus={() => {
+              setFormError((prev) => ({ ...prev, userMessage: false }));
+            }}
           />
-          {userSubmit && userInput.userMessage.trim().length === 0 && (
+          {formError.userMessage && (
             <p className={styles.errorMessage}>Messsage is required!</p>
           )}
         </div>
@@ -157,11 +211,21 @@ const Contact = () => {
           }}
         />
         <div className={styles.buttonContainer}>
-          <button type="submit" className={styles.sendButton} onClick={onButtonClick}>
+          <button
+            type="submit"
+            className={styles.sendButton}
+            disabled={userSubmit}
+            style={userSubmit ? { backgroundColor: "#838383" } : {}}
+          >
             Send
           </button>
-          {userSubmit && sendOK && <p className={styles.messageOK}>Message sent!</p>}
-          {userSubmit && sendNOK && <p className={styles.messageNOK}>Error sending a message!</p>}
+          {userSubmit && <p className={styles.messageOK}>Sending...</p>}
+          {sendOK && (
+            <p className={styles.messageOK}>Message sent!</p>
+          )}
+          {userSubmit && sendNOK && (
+            <p className={styles.messageNOK}>Error sending a message!</p>
+          )}
         </div>
       </motion.form>
     </div>

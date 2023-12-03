@@ -54,8 +54,8 @@ const PortfolioItem = (props) => {
       </div>
       <h3 className={styles.title}>{props.title}</h3>
       <ul className={styles.list}>
-        {props.techStack.map((item) => (
-          <li className={styles.listItem}>{item}</li>
+        {props.techStack.map((item, index) => (
+          <li className={styles.listItem} key={index}>{item}</li>
         ))}
       </ul>
     </div>
